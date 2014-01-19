@@ -1,0 +1,31 @@
+<h1>Listing live_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nid</th>
+      <th>Plyr</th>
+      <th>Team</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @live_players.each do |live_player| %>
+      <tr>
+        <td><%= live_player.Nid %></td>
+        <td><%= live_player.Plyr %></td>
+        <td><%= live_player.Team %></td>
+        <td><%= link_to 'Show', live_player %></td>
+        <td><%= link_to 'Edit', edit_live_player_path(live_player) %></td>
+        <td><%= link_to 'Destroy', live_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Live player', new_live_player_path %>

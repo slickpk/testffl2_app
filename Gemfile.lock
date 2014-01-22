@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 GIT
   remote: git://github.com/bmabey/database_cleaner.git
   revision: 072492166e82969136d1abaeccbcadaae4fe6539
   specs:
     database_cleaner (1.2.0)
 
+=======
+>>>>>>> Firststart
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,6 +36,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+<<<<<<< HEAD
     bcrypt-ruby (3.1.2-x86-mingw32)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
@@ -47,6 +51,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.4.0)
       ffi (~> 1.0, >= 1.0.11)
+=======
+    builder (3.1.4)
+>>>>>>> Firststart
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -54,6 +61,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+<<<<<<< HEAD
     cucumber (1.3.10)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -86,6 +94,15 @@ GEM
     i18n (0.6.9)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
+=======
+    erubis (2.7.0)
+    execjs (2.0.2)
+    hike (1.2.3)
+    i18n (0.6.9)
+    jbuilder (1.5.3)
+      activesupport (>= 3.0.0)
+      multi_json (>= 1.2.0)
+>>>>>>> Firststart
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -93,6 +110,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+<<<<<<< HEAD
     mechanize (2.7.2)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0.0)
@@ -113,6 +131,11 @@ GEM
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
     pg (0.15.1-x86-mingw32)
+=======
+    mime-types (1.25.1)
+    minitest (4.7.5)
+    multi_json (1.8.4)
+>>>>>>> Firststart
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -125,17 +148,21 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.2)
       sprockets-rails (~> 2.0.0)
+<<<<<<< HEAD
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
+=======
+>>>>>>> Firststart
     railties (4.0.2)
       actionpack (= 4.0.2)
       activesupport (= 4.0.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.1)
+<<<<<<< HEAD
     rdoc (3.12.2)
       json (~> 1.4)
     rspec-core (2.13.1)
@@ -150,11 +177,16 @@ GEM
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
     rubyzip (0.9.9)
+=======
+    rdoc (4.1.1)
+      json (~> 1.4)
+>>>>>>> Firststart
     sass (3.2.13)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
+<<<<<<< HEAD
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
@@ -163,6 +195,11 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
+=======
+    sdoc (0.4.0)
+      json (~> 1.8)
+      rdoc (~> 4.0, < 5.0)
+>>>>>>> Firststart
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -180,6 +217,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+<<<<<<< HEAD
     turbolinks (1.1.1)
       coffee-rails
     tzinfo (0.3.38)
@@ -194,11 +232,20 @@ GEM
     will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
+=======
+    turbolinks (2.2.0)
+      coffee-rails
+    tzinfo (0.3.38)
+    uglifier (2.4.0)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
+>>>>>>> Firststart
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+<<<<<<< HEAD
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
   bootstrap-will_paginate (= 0.0.9)
@@ -223,3 +270,14 @@ DEPENDENCIES
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
   will_paginate (= 3.0.4)
+=======
+  coffee-rails (~> 4.0.0)
+  jbuilder (~> 1.2)
+  jquery-rails
+  rails (= 4.0.2)
+  sass-rails (~> 4.0.0)
+  sdoc
+  sqlite3
+  turbolinks
+  uglifier (>= 1.3.0)
+>>>>>>> Firststart

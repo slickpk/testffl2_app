@@ -3,4 +3,8 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+<<<<<<< HEAD
 TestfflApp::Application.load_tasks
+=======
+TestFFLApp::Application.load_tasks
+>>>>>>> Firststart

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 TestfflApp::Application.routes.draw do
+=======
+TestFFLApp::Application.routes.draw do
+>>>>>>> Firststart
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

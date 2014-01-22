@@ -1,0 +1,29 @@
+<%= form_for(@live_player) do |f| %>
+  <% if @live_player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@live_player.errors.count, "error") %> prohibited this live_player from being saved:</h2>
+
+      <ul>
+      <% @live_player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nid %><br>
+    <%= f.number_field :Nid %>
+  </div>
+  <div class="field">
+    <%= f.label :Plyr %><br>
+    <%= f.text_field :Plyr %>
+  </div>
+  <div class="field">
+    <%= f.label :Team %><br>
+    <%= f.text_field :Team %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

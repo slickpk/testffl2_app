@@ -4,6 +4,11 @@ class LivePlayersController < ApplicationController
   # GET /live_players
   # GET /live_players.json
   def index
+	  #puts DateTime.now
+    system "rake db:reset"
+    system "rake populateA"
+    system "rake populate"
+    flash[:notice] = "Players updated"
     @live_players = LivePlayer.all
   end
 

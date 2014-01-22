@@ -1,0 +1,29 @@
+<h1>Listing fteams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Teamurl</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fteams.each do |fteam| %>
+      <tr>
+        <td><%= fteam.Team %></td>
+        <td><%= fteam.TeamUrl %></td>
+        <td><%= link_to 'Show', fteam %></td>
+        <td><%= link_to 'Edit', edit_fteam_path(fteam) %></td>
+        <td><%= link_to 'Destroy', fteam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fteam', new_fteam_path %>

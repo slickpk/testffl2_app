@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Abrv:</strong>
+  <%= @abbrv.Abrv %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @abbrv.Team %>
+</p>
+
+<%= link_to 'Edit', edit_abbrv_path(@abbrv) %> |
+<%= link_to 'Back', abbrvs_path %>

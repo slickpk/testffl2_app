@@ -1,4 +1,10 @@
 TestfflApp::Application.routes.draw do
+  resources :teamplayers
+
+  resources :fteams
+
+  resources :abbrvs
+
   resources :live_players
 
   # The priority is based upon order of creation: first created -> highest priority.

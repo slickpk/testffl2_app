@@ -1,0 +1,25 @@
+<%= form_for(@abbrv) do |f| %>
+  <% if @abbrv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@abbrv.errors.count, "error") %> prohibited this abbrv from being saved:</h2>
+
+      <ul>
+      <% @abbrv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Abrv %><br>
+    <%= f.text_field :Abrv %>
+  </div>
+  <div class="field">
+    <%= f.label :Team %><br>
+    <%= f.text_field :Team %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

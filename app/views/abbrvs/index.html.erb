@@ -1,0 +1,29 @@
+<h1>Listing abbrvs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Abrv</th>
+      <th>Team</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @abbrvs.each do |abbrv| %>
+      <tr>
+        <td><%= abbrv.Abrv %></td>
+        <td><%= abbrv.Team %></td>
+        <td><%= link_to 'Show', abbrv %></td>
+        <td><%= link_to 'Edit', edit_abbrv_path(abbrv) %></td>
+        <td><%= link_to 'Destroy', abbrv, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Abbrv', new_abbrv_path %>

@@ -1,4 +1,6 @@
-TestFFLApp::Application.routes.draw do
+TestfflApp::Application.routes.draw do
+
+root '#home'
 
   resources :teamplayers
 

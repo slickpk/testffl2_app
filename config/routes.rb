@@ -1,5 +1,7 @@
 TestfflApp::Application.routes.draw do
 
+root 'weclome#home'
+
   resources :teamplayers
 
   resources :fteams

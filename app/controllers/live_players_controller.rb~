@@ -6,6 +6,7 @@ class LivePlayersController < ApplicationController
   def index
 	  #puts DateTime.now
     system "rake db:reset"
+    system "rake populateA"
     system "rake populate"
     flash[:notice] = "Players updated"
     @live_players = LivePlayer.all

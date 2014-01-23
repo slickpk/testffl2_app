@@ -9,6 +9,7 @@ class LivePlayersController < ApplicationController
     system "rake populateA"
     system "rake populate"
     flash[:notice] = "Players updated"
+
     @live_players = LivePlayer.all
   end
 

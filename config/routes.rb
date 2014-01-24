@@ -1,6 +1,7 @@
 TestfflApp::Application.routes.draw do
 
-root 'weclome#index'
+  get "static_pages/home"
+root 'welcome#index'
 
   resources :teamplayers
 

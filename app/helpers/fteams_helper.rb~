@@ -1,0 +1,2 @@
+module FteamsHelper
+end

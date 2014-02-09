@@ -5,8 +5,8 @@ class LivePlayersController < ApplicationController
   # GET /live_players.json
   def index
 	  #puts DateTime.now
-    system "rake db:reset"
-    system "rake populateA"
+    #system "rake db:reset"
+    #system "rake populateA"
     system "rake populate"
     flash[:notice] = "Players updated"
 
@@ -65,6 +65,10 @@ class LivePlayersController < ApplicationController
       format.html { redirect_to live_players_url }
       format.json { head :no_content }
     end
+  end
+
+  def name_team
+	'Plyr Team'
   end
 
   private

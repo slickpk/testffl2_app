@@ -5,6 +5,7 @@ class FteamsController < ApplicationController
   # GET /fteams.json
   def index
     @fteams = Fteam.all
+   #@teamplayers = Teamplayer.all
   end
 
   # GET /fteams/1

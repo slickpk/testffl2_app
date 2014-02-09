@@ -1,0 +1,109 @@
+class TeamplayersController < ApplicationController
+        before_filter :set_id
+      	before_action :set_id, :set_teamplayer, only: [:show, :edit, :update, :destroy]
+
+  # GET /teamplayers
+  # GET /teamplayers.json
+  def index
+    @teamplayers = Teamplayer.all
+    @fteams = Fteam.all
+    #@liveplayer = Liveplayer.all
+    tid = params[:resolution]
+    toimport = params[:import]
+
+puts tid
+    if tid.nil? == true
+	    tid = 1
+    	    @ids = tid
+            @pl =  Teamplayer.joins(:live_player).where(:teamid => @ids).all
+    else
+	    tid = tid.to_i;
+    	    @ids = tid
+            @pl =  Teamplayer.joins(:live_player).where(:teamid => @ids).pluck(:Plyr, :Team)
+    end
+    if toimport == "true"
+	    @turl = Fteam.where(:id => @ids).pluck(:TeamUrl)
+  
+	    @turl = @turl[0]  
+
+    	system "rake updateTm:updateA[#{@turl},#{@ids}]"
+    end
+
+
+  end
+
+
+  # GET /teamplayers/1
+  # GET /teamplayers/1.json
+  def show
+    #@ids = params[:resolution]
+  end
+
+  # GET /teamplayers/new
+  def new
+    @teamplayer = Teamplayer.new
+  end
+
+  # GET /teamplayers/1/edit
+  def edit
+  end
+
+  # POST /teamplayers
+  # POST /teamplayers.json
+  def create
+    @teamplayer = Teamplayer.new(teamplayer_params)
+
+    respond_to do |format|
+      if @teamplayer.save
+        format.html { redirect_to @teamplayer, notice: 'Teamplayer was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @teamplayer }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @teamplayer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /teamplayers/1
+  # PATCH/PUT /teamplayers/1.json
+  def update
+    respond_to do |format|
+      if @teamplayer.update(teamplayer_params)
+        format.html { redirect_to @teamplayer, notice: 'Teamplayer was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @teamplayer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /teamplayers/1
+  # DELETE /teamplayers/1.json
+  def destroy
+    @teamplayer.destroy
+    respond_to do |format|
+      format.html { redirect_to teamplayers_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def set_id
+	  @ids = params[:resolution]
+  end
+
+  def Name_Team
+	"#{Nid}"
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_teamplayer
+      @teamplayer = Teamplayer.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def teamplayer_params
+      params.require(:teamplayer).permit(:playerid, :teamid)
+    end
+end

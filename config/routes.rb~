@@ -1,7 +1,8 @@
 TestfflApp::Application.routes.draw do
 
   root "static_pages#home"
-#root 'welcome#index'
+
+  get "static_pages/Add_team"
 
   resources :teamplayers
 

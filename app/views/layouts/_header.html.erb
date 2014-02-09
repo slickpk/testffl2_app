@@ -1,0 +1,125 @@
+<header class="navbar navbar-fixed-top navbar-inverse" id="nav1">
+      <div class="navbar-outer">
+        <div class="container">
+          <%= link_to "Fantasy Football App", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-left">
+              <li><%= link_to "Home",    '#' %></li>
+              <li><%= link_to "Add Fantasy Team",    '#' %></li>
+              <li><%= link_to "Add/Delete Players", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('#test').change(function(){
+       $(this).val() != "" ? $('#myTextBox').val($(this).val()) : $('#myTextBox').hide();
+    });
+    });
+
+
+$(document).ready(function(){
+    $('#teams').change(function(){
+       $(this).val() != "" ? $('#myTextBox2').val($(this).val()) : $('#myTextBox2').hide();
+    });
+    });
+
+var ids = 2;
+
+var data1 = [];
+
+var test3 = [];
+$(document).ready(function()
+{
+	$('#showbtn').on('click', function()
+       	{
+			ids = $('#teams').val();
+			IM = false;
+			p = 0;
+		$.ajax(
+		{
+			url: "http://localhost:3000/teamplayers.json?resolution="+ids+"&import="+IM,
+			type:"get",
+			dataType: "json",
+			cache: true,
+			success:function(data, status)
+			{
+				alert("Loading Players....");
+				$.each(data, function(i, item) 
+				{
+					if(item.teamid == ids) 
+					{
+						data1[p] = item.playerid;
+						p++;
+					}
+				});
+			},
+			error: function(error) 
+			{
+				alert("Failed " + console.log(error) + " " + error);
+		        }	       
+		});
+
+	var test2 = '<table id = "PlyrsTm2" style = float:right><tr><th id="PTTitle" colspan=2>List of players on selected team</th></tr><tr><th id="PTHRows">Player</th><th id="PTHRows">Team</th></tr>';
+
+	var t = 0;
+		$.ajax(
+		{
+			url:"http://localhost:3000/live_players.json",
+			type:"get",
+			dataType: "json",
+			cache: true,
+			success: function(data, status)
+			{
+				for (var x = 0; x < data1.length; x++) 
+				{
+					pid1 = parseInt(data1[x]);
+					if(pid1 > 0)
+					{
+						pid1 = pid1-1;
+					}
+					var test1 = '<tr><td class="player">' + data[pid1].Plyr + '</td><td class="team">' + data[pid1].Team + '</td></tr>';
+					test3[x] = test1;
+				}
+				test3[test3.length-1] = '</table>';
+
+				for(var y = 0; y < test3.length; y++) 
+				{
+					test2+= test3[y];
+
+				}
+				$('#PlyrsTm2').replaceWith(test2);
+				$('#PlyrsTm2').trigger('create');
+			}
+
+		});
+	});
+});
+
+$(document).ready(function(){
+			$('#importbtn').on('click', function() {
+			ids = $('#teams').val()
+			IM = true
+		$.ajax({
+			url: "http://localhost:3000/teamplayers.json?resolution="+ids+"&import="+IM,
+			type:"get",
+			dataType: "json",
+			cache: true,
+			success:function(data){
+				$('#PlyrsTm2').html(data);
+				alert("Importing Players...."); 
+				},
+			error: function(error) {
+				       alert("Failed " + console.log(error) + " " + error)
+				       }	       
+				       });
+				$('#PlyrsTm2').trigger('create');
+		
+				});
+			});
+
+
+</script>
+</header>

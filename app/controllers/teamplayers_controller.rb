@@ -1,11 +1,37 @@
 class TeamplayersController < ApplicationController
-  before_action :set_teamplayer, only: [:show, :edit, :update, :destroy]
+        before_filter :set_id
+      	before_action :set_id, :set_teamplayer, only: [:show, :edit, :update, :destroy]
 
   # GET /teamplayers
   # GET /teamplayers.json
   def index
     @teamplayers = Teamplayer.all
+    @fteams = Fteam.all
+    #@liveplayer = Liveplayer.all
+    tid = params[:resolution]
+    toimport = params[:import]
+
+puts tid
+    if tid.nil? == true
+	    tid = 1
+    	    @ids = tid
+            @pl =  Teamplayer.joins(:live_player).where(:teamid => @ids).all
+    else
+	    tid = tid.to_i;
+    	    @ids = tid
+            @pl =  Teamplayer.joins(:live_player).where(:teamid => @ids).pluck(:Plyr, :Team)
+    end
+    if toimport == "true"
+	    @turl = Fteam.where(:id => @ids).pluck(:TeamUrl)
+  
+	    @turl = @turl[0]  
+
+    	system "rake updateTm:updateA[#{@turl},#{@ids}]"
+    end
+
+
   end
+
 
   # GET /teamplayers/1
   # GET /teamplayers/1.json
@@ -59,6 +85,14 @@ class TeamplayersController < ApplicationController
       format.html { redirect_to teamplayers_url }
       format.json { head :no_content }
     end
+  end
+
+  def set_id
+	  @ids = params[:resolution]
+  end
+
+  def Name_Team
+	"#{Nid}"
   end
 
   private

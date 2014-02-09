@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140122060707) do
   create_table "teamplayers", force: true do |t|
     t.string   "playerid"
     t.string   "teamid"
+    t.string   "live_player_id"
+    t.string   "fteam_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

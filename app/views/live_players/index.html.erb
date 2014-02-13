@@ -1,7 +1,33 @@
-<h1>Listing live_players</h1>
+<h1>Listing All Players</h1>
+
+<div id="progressbar"><div class="progress-label">Loading...</div></div>
+
+<a id="playerBtn"><button type="button" id="plyrBtn">Players</button></a>
+
+<select id = "FilterTm">
+		<option>Select a Team...</option>
+	<% Abbrv.order("Team").each do |abbrv| %>
+		<option><%= abbrv.Team %></option>
+	<% end %>
+</select>
+
+<%#= link_to '<button type = "button">Players</button>'.html_safe, live_players_path(:Team => @tmf) %>
 
 
-<table>
+<br />
+
+
+<br />
+<input type="text" class="hiddenField" id="curTeam" style="border:none;" />
+
+<select id = "ptable" size = 30>
+	<% @live_players.each do |live_player| %>
+		<option><%= live_player.Plyr %></option>
+	<% end %>
+</select>
+
+<!--
+<table id = "ptable" style= float:right>
   <thead>
     <tr>
       <th>Plyr</th>
@@ -13,18 +39,18 @@
   </thead>
 
   <tbody>
-    <% @live_players.each do |live_player| %>
+    <%# @live_players.each do |live_player| %>
       <tr>
-        <td><%= live_player.Plyr %></td>
-        <td><%= live_player.Team %></td>
-        <td><%= link_to 'Show', live_player %></td>
-        <td><%= link_to 'Edit', edit_live_player_path(live_player) %></td>
-        <td><%= link_to 'Destroy', live_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= live_player.Plyr %></td>
+        <td><%#= live_player.Team %></td>
+        <td><%#= link_to 'Show', live_player %></td>
+        <td><%#= link_to 'Edit', edit_live_player_path(live_player) %></td>
+	<td><%#= link_to 'Destroy', live_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
-
+-->
 <br>
 
-<%= link_to 'New Live player', new_live_player_path %>
+<%#= link_to 'New Live player', new_live_player_path %>

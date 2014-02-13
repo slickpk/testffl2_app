@@ -71,9 +71,9 @@ div {
 	width: 20em;
 }
 
-#SelectedTm {
-	
-	
+#ptable tr, td {
+	background-color: green;	
+	border: 5px solid white;
 }
 
 .player {
@@ -104,7 +104,22 @@ div {
 }
 
 option {
-	padding: 20px;
+	//padding: 20px;
+	border-width: 1px;
+}
+
+#ptable, #FilterTm, #curTeam {
+	margin-left: 150px;
+	font-size: 1.2em;
+	background-color: darkgreen;
+	color: white;
+}
+
+#plyrBtn {
+	font-size: 1.5em;
+	margin-left: 150px;
+	vertical-align: middle;
+	font-family: "Times New Roman";
 }
 
 /* typography */
@@ -164,4 +179,17 @@ td {
 	color: white;
 	border: 0px;
 
+}
+
+/* progress bar */
+ .ui-progressbar {
+position: relative;
+color: black;
+}
+.progress-label {
+position: absolute;
+left: 50%;
+top: 4px;
+font-weight: bold;
+text-shadow: 1px 1px 0 #fff;
 }

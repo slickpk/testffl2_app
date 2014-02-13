@@ -4,9 +4,9 @@ class AbbrvsController < ApplicationController
   # GET /abbrvs
   # GET /abbrvs.json
   def index
-    system "rake db:reset"
-    system "rake populateA"
-    @abbrvs = Abbrv.all
+    #system "rake db:reset"
+    #system "rake populateA"
+    @abbrvs = Abbrv.all.sort
   end
 
   # GET /abbrvs/1

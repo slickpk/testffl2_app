@@ -4,13 +4,19 @@
           <%= link_to "Fantasy Football App", '#', id: "logo" %>
           <nav>
             <ul class="nav pull-left">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Add Fantasy Team",    '#' %></li>
-              <li><%= link_to "Add/Delete Players", '#' %></li>
+		    <li><%= link_to "Home",    '#' %></li>
+		    <li><%= link_to "Players", 'live_players' %>
+              <li><%= link_to "Add Fantasy Team",    'fteams' %></li>
+              <li><%= link_to "Add/Delete Players", 'teamplayers' %></li>
             </ul>
           </nav>
         </div>
 </div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
 
 <script>
 $(document).ready(function(){
@@ -25,6 +31,43 @@ $(document).ready(function(){
        $(this).val() != "" ? $('#myTextBox2').val($(this).val()) : $('#myTextBox2').hide();
     });
     });
+
+$(document).ready(function(){
+		$('#FilterTm').change(function(){
+			Tm = $('#FilterTm').val();
+			SelectTm = true;
+			var TmFinish = "";
+       			$(this).val() != "" ? $('#curTeam').val($(this).val()) : $('#curTeam').hide();
+			$('#playerBtn').attr('href', 'http://localhost:3000/live_players/?Team=' + Tm);
+			});
+		});
+
+$(document).ready(function() {
+		$('#playerBtn').click(function() {
+			 $(function() {
+				var progressbar = $( "#progressbar" ),
+				progressLabel = $( ".progress-label" );
+				progressbar.progressbar({
+					value: false,
+					change: function() {
+						progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+					},
+					complete: function() {
+						progressLabel.text( "Complete!" );
+					}
+				});
+				function progress() {
+				var val = progressbar.progressbar( "value" ) || 0;
+				progressbar.progressbar( "value", val + 1 );
+				if ( val < 99 ) {
+					setTimeout( progress, 250 );
+				}
+				}	
+				setTimeout( progress, 3000 );
+				});
+
+				});
+				});
 
 var ids = 2;
 

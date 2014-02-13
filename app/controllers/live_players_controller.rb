@@ -10,7 +10,13 @@ class LivePlayersController < ApplicationController
     system "rake populate"
     flash[:notice] = "Players updated"
 
-    @live_players = LivePlayer.all
+   if params[:Team]
+	@live_players = LivePlayer.where(:Team => params[:Team])
+   else
+	@live_players = LivePlayer.all
+   end
+
+    @abbrvs = Abbrv.all
   end
 
   # GET /live_players/1

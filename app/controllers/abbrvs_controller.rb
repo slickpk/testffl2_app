@@ -6,7 +6,7 @@ class AbbrvsController < ApplicationController
   def index
     #system "rake db:reset"
     #system "rake populateA"
-    @abbrvs = Abbrv.all
+    @abbrvs = Abbrv.all.sort
   end
 
   # GET /abbrvs/1

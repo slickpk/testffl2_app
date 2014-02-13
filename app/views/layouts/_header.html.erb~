@@ -4,13 +4,19 @@
           <%= link_to "Fantasy Football App", '#', id: "logo" %>
           <nav>
             <ul class="nav pull-left">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Add Fantasy Team",    '#' %></li>
-              <li><%= link_to "Add/Delete Players", '#' %></li>
+		    <li><%= link_to "Home",    '#' %></li>
+		    <li><%= link_to "Players", 'live_players' %>
+              <li><%= link_to "Add Fantasy Team",    'fteams' %></li>
+              <li><%= link_to "Add/Delete Players", 'teamplayers' %></li>
             </ul>
           </nav>
         </div>
 </div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
 
 <script>
 $(document).ready(function(){
@@ -26,11 +32,44 @@ $(document).ready(function(){
     });
     });
 
+$(document).ready(function(){
+		$('#FilterTm').change(function(){
+			Tm = $('#FilterTm').val();
+			SelectTm = true;
+			var TmFinish = "";
+       			$(this).val() != "" ? $('#curTeam').val($(this).val()) : $('#curTeam').hide();
+			$('#playerBtn').attr('href', 'http://localhost:3000/live_players/?Team=' + Tm);
+			});
+		});
+
+$(document).ready(function() {
+		$('#playerBtn').click(function() {
+			 $(function() {
+				var progressbar = $( "#progressbar" ),
+				progressLabel = $( ".progress-label" );
+				progressbar.progressbar({
+					value: false,
+					change: function() {
+						progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+					},
+					complete: function() {
+						progressLabel.text( "Complete!" );
+					}
+				});
+				function progress() {
+				var val = progressbar.progressbar( "value" ) || 0;
+				progressbar.progressbar( "value", val + 1 );
+				if ( val < 99 ) {
+					setTimeout( progress, 250 );
+				}
+				}	
+				setTimeout( progress, 3000 );
+				});
+
+				});
+				});
+
 var ids = 2;
-
-
-
-var change2 = '<table id = "PlyrsTm2" style = float:right><tr><th id="PTTitle" colspan=2>List of players on selected team</th></tr><tr><th id="PTHRows">Player</th><th id="PTHRows">Team</th></tr><tr><td class="player"></td><td class="team"></td></tr></table>'
 
 var data1 = [];
 
@@ -69,9 +108,6 @@ $(document).ready(function()
 	var test2 = '<table id = "PlyrsTm2" style = float:right><tr><th id="PTTitle" colspan=2>List of players on selected team</th></tr><tr><th id="PTHRows">Player</th><th id="PTHRows">Team</th></tr>';
 
 	var t = 0;
-
-
-
 		$.ajax(
 		{
 			url:"http://localhost:3000/live_players.json",
@@ -82,7 +118,6 @@ $(document).ready(function()
 			{
 				for (var x = 0; x < data1.length; x++) 
 				{
-				//alert(data[data1[x]-1].Plyr);
 					pid1 = parseInt(data1[x]);
 					if(pid1 > 0)
 					{

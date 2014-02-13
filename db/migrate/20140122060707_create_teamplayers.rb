@@ -10,10 +10,12 @@ class CreateTeamplayers < ActiveRecord::Migration
     end
   end
 
-    create_table :fteams do |t|
-      t.string :Team
-      t.string :TeamUrl
-      t.timestamps
+    if !table_exists?(:fteams)
+    	create_table :fteams do |t|
+      		t.string :Team
+      		t.string :TeamUrl
+      		t.timestamps
+    	end
     end
 
     create_table :teamplayers do |t|

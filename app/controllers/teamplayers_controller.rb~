@@ -36,7 +36,6 @@ puts tid
   # GET /teamplayers/1
   # GET /teamplayers/1.json
   def show
-    #@ids = params[:resolution]
   end
 
   # GET /teamplayers/new

@@ -1,12 +1,14 @@
 class CreateTeamplayers < ActiveRecord::Migration
   def change
 
-    create_table :live_players do |t|
-      t.integer :Nid
-      t.string :Plyr
-      t.string :Team
-      t.timestamps
+    if !table_exists?(:live_players)
+    	create_table :live_players do |t|
+      		t.integer :Nid
+      		t.string :Plyr
+      		t.string :Team
+      		t.timestamps
     end
+  end
 
     create_table :fteams do |t|
       t.string :Team

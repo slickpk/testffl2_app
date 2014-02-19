@@ -12,7 +12,7 @@ TestfflApp::Application.routes.draw do
 
   resources :live_players
 
-  match 'live_players', to: 'live_players#index' via: 'get'
+  get 'live_players', to: 'live_players#index' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

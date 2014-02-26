@@ -6,8 +6,11 @@
 
 <select id = "FilterTm">
 		<option>Select a Team...</option>
-	<% Abbrv.order("Team").each do |abbrv| %>
-		<option><%= abbrv.Team %></option>
+	<%# Abbrv.order("Team").each do |abbrv| %>
+		<option><%#= abbrv.Team %></option>
+		<%# end %>
+		<% @abbvrs.each do |abv| %>
+		<option><%= abv.Team %></option>
 	<% end %>
 </select>
 

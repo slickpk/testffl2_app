@@ -8,7 +8,10 @@
 		<option>Select a Team...</option>
 	<%# Abbrv.order("Team").each do |abbrv| %>
 		<option><%#= abbrv.Team %></option>
-	<%# end %>
+		<%# end %>
+		<% @abbrvs.each do |abv| %>
+		<option><%= abv.Team %></option>
+	<% end %>
 </select>
 
 <%#= link_to '<button type = "button">Players</button>'.html_safe, live_players_path(:Team => @tmf) %>

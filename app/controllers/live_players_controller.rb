@@ -12,6 +12,7 @@ class LivePlayersController < ApplicationController
 
    if params[:Team]
 	@live_players = LivePlayer.where(:Team => params[:Team])
+	@cTeam = params[:Team]
    else
 	@live_players = LivePlayer.all
    end

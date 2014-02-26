@@ -19,7 +19,7 @@ time = Time.now
 curtime = time.strftime("%A-%I%p")
 #system "pause"
 
-if curtime == "Tuesday-08AM" || curtime == "Thursday-08AM" || curtime == "Saturday-09AM" || curtime == "Tuesday-10PM"
+if curtime == "Tuesday-08AM" || curtime == "Thursday-08AM" || curtime == "Saturday-09AM"
 db = SQLite3::Database.new('db/development.sqlite3')
 			        results = db.execute("Select Abrv, Team from abbrvs")	
 			 #puts results

@@ -109,7 +109,7 @@ option {
 }
 
 #ptable, #FilterTm, #curTeam {
-	margin-left: 150px;
+	margin-left: 360px;
 	font-size: 1.2em;
 	background-color: darkgreen;
 	color: white;
@@ -117,7 +117,7 @@ option {
 
 #plyrBtn {
 	font-size: 1.5em;
-	margin-left: 150px;
+	//margin-left: 20px;
 	vertical-align: top;
 	font-family: "Times New Roman";
 }

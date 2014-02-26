@@ -2,27 +2,27 @@
 
 <div id="progressbar"><div class="progress-label">Loading...</div></div>
 
-<a id="playerBtn"><button type="button" id="plyrBtn">Players</button></a>
+<br />
 
-<select id = "FilterTm">
+<select id = "FilterTm" style="float:left">
 		<option>Select a Team...</option>
 	<%# Abbrv.order("Team").each do |abbrv| %>
 		<option><%#= abbrv.Team %></option>
 		<%# end %>
-		<% @abbvrs.each do |abv| %>
+		<% @abbrvs.each do |abv| %>
 		<option><%= abv.Team %></option>
 	<% end %>
 </select>
 
+<a id="playerBtn"><button type="button" id="plyrBtn" style="float:left">Players</button></a>
+
 <%#= link_to '<button type = "button">Players</button>'.html_safe, live_players_path(:Team => @tmf) %>
-
+<br />
+<br />
+<br />
+<input type="text" class="hiddenField" id="curTeam" value="<% @cTeam %>" />
 
 <br />
-
-
-<br />
-<input type="text" class="hiddenField" id="curTeam" style="border:none;" />
-
 <select id = "ptable" size = 30>
 	<% @live_players.each do |live_player| %>
 		<option><%= live_player.Plyr %></option>

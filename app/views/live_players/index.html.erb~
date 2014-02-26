@@ -20,7 +20,7 @@
 <br />
 <br />
 <br />
-<input type="text" class="hiddenField" id="curTeam" value="<% @cTeam %>" />
+<input type="text" class="hiddenField" id="curTeam" />
 
 <br />
 <select id = "ptable" size = 30>
